@@ -472,7 +472,7 @@ func WithCustomIndicators(indicators ...Indicator) Option {
 
 func NewChart(options ...Option) (*Chart, error) {
 	chart := &Chart{
-		port:            8080,
+		port:            8089,
 		candles:         make(map[string][]Candle),
 		dataframe:       make(map[string]*model.Dataframe),
 		ordersIDsByPair: make(map[string]*set.LinkedHashSetINT64),

@@ -26,19 +26,19 @@ func main() {
 	}
 
 	// initialize your strategy
-	strategy := new(strategies.CrossEMA)
+	strategy := new(strategies.Turtle)
 
 	// load historical data from CSV files
 	csvFeed, err := exchange.NewCSVFeed(
 		strategy.Timeframe(),
 		exchange.PairFeed{
 			Pair:      "BTCUSDT",
-			File:      "testdata/btc-1h.csv",
+			File:      "testdata/btc-1h-5000.csv",
 			Timeframe: "1h",
 		},
 		exchange.PairFeed{
 			Pair:      "ETHUSDT",
-			File:      "testdata/eth-1h.csv",
+			File:      "testdata/eth-1h-5000.csv",
 			Timeframe: "1h",
 		},
 	)
@@ -56,7 +56,7 @@ func main() {
 	wallet := exchange.NewPaperWallet(
 		ctx,
 		"USDT",
-		exchange.WithPaperAsset("USDT", 10000),
+		exchange.WithPaperAsset("USDT", 1000),
 		exchange.WithDataFeed(csvFeed),
 	)
 
